@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ednalynn's Array Filter</title>
+</head>
+<body>
+    <!--HTML CLODING HERE -->
+    <button id="OGArray">Display Original Array</button>
+    <p id = "originalArray"></p>
+    <button id ="timesFive">Five Times Greater than OG</button>
+    <p id = "multiplyArray"></p>
+    <button id ="lowerthan50">Prompt less than 50</button>
+    <p id="netlessthan50"></p>
+
+    <!--JAVASCRIP HERE-->
+    <script>
+        const numbers=[99, 55, 43, 29, 75, 16, 38, 72, 65, 32, 80, 70, 38, 47]; // Numbers provided by professor 
+
+        //Creating action for original array button to display, not part of assignment instructions but gives me 
+        //a general view . 
+
+        document.getElementById('OGArray').addEventListener('click', function(){
+            document.getElementById('originalArray').textContent = `Original Array is  ${numbers.join(' , ')}`; 
+        })
+
+        //To queue the original list to be 5 times greater 
+
+        document.getElementById('timesFive').addEventListener('click', () =>
+        {
+            //This is the action of the button called Five Times Greater than OG aka original
+            const multiplyArray = numbers.map (number => number *5) ; 
+            // using MultiplyArray as a focus to access the maps of the collection of numbers. Map functions to change each element in the Original Collection 
+
+            document.getElementById('multiplyArray').textContent = `Multiplied: ${multiplyArray.join(' , ')}`; 
+            //Accessing the p elment to list things beautifully by using .join 
+        }); 
+
+        //To net less than 50 numbers in the numbers array 
+
+        document.getElementById('lowerthan50').addEventListener('click', () => 
+        {
+            const netlessthan50 = numbers.filter(number => number < 50);
+            // Using my p element as a varible to prompt the display for numbers less than 50. 
+            //the .filter function objective is to create a new array with provided function , in this case its numbers less than 50 
+
+            document.getElementById('netlessthan50').textContent=`Modified less than fifty:  ${netlessthan50.join(' , ')}`;
+        });
+
+    </script>
+    
+</body>
+</html>
